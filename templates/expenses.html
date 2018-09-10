@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Expenses
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('expenses') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input type="text" autocomplete="off" autofocus class="form-control" name="expense" placeholder="Expense" required/>
+                <input type="number" autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount" required/>
+                <input type="text" autocomplete="off" autofocus class="form-control" name="date" placeholder="Date of Expense" onblur="(this.type='text')" onfocus="(this.type='date')" required/>
+            </div>
+            <button class="btn btn-primary" type="submit">Add Expense</button>
+        </fieldset>
+    </form>
+    {% endblock %}

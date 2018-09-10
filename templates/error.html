@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block main %}
+        <h2>{{ errortype }} </h2>
+        <button onclick="goBack()" class="btn btn-primary">Go Back</button>
+
+        <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trains
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('train') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="number" placeholder="Train Number" type="text" required/>
+                <input id="pac-input" class="form-control" name="location" type="text" placeholder="Location">
+                <input autocomplete="off" autofocus class="form-control" name="date" placeholder="Date" type="text" onblur="(this.type='text')" onfocus="(this.type='date')" required/>
+                <input autocomplete="off" autofocus class="form-control" name="time" placeholder="Train Time" type="text" required onblur="(this.type='text')" onfocus="(this.type='time')"/>
+            </div>
+            <button class="btn btn-primary" type="submit">Add Train to Itinerary</button>
+        </fieldset>
+    </form>
+
+<!-- Script from https://developers.google.com/maps/documentation/javascript/examples/places-searchbox#try-it-yourself -->
+<script>
+      function initAutocomplete() {
+
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+          });
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZ3-sClpX64tLyOptJaxAReSlayTyL9N8
+&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+{% endblock %}

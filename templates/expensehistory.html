@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Expense History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Expense</th>
+                <th>Amount</th>
+                <th>Date of Expense</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for expense in expenseinfo %}
+        <tr>
+            <td>{{ expense.Expense }}</td>
+            <td>${{ expense.Amount }}</td>
+            <td>{{ expense.Date }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

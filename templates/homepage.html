@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+
+{% block main %}
+<h1 text-align="center">Trip Itinerary</h1>
+<br></br>
+<h4 align="right">Current Money: ${{ cash }}</h4>
+<h2 text-align="center">Flight Information</h1>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th id="equalwidth">Flight No.</th>
+                <th id="equalwidth">Location</th>
+                <th id="equalwidth">Date</th>
+                <th id="equalwidth">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for flight in flightinfo %}
+            <tr>
+                <td>{{ flight.Number }}</td>
+                <td>{{ flight.Location }}</td>
+                <td>{{ flight.Date }}</td>
+                <td>{{ flight.Time }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<br></br>
+<h2 text-align="center">Hotel Information</h1>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th id="equalwidth">Hotel Name</th>
+                <th id="equalwidth">Date</th>
+                <th id="equalwidth">Time</th>
+                <th id="equalwidth">Check Out Date</th>
+            </tr>
+        </thead>
+        {% for hotel in hotelinfo %}
+            <tr>
+                <td>{{ hotel.Name }}</td>
+                <td>{{ hotel.Date }}</td>
+                <td>{{ hotel.Time }}</td>
+                <td>{{ hotel.Outdate }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+<br></br>
+<h2 text-align="center">Train Information</h1>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th id="equalwidth">Train No.</th>
+                <th id="equalwidth">Location</th>
+                <th id="equalwidth">Date</th>
+                <th id="equalwidth">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for train in traininfo %}
+            <tr>
+                <td>{{ train.Number }}</td>
+                <td>{{ train.Location }}</td>
+                <td>{{ train.Date }}</td>
+                <td>{{ train.Time }}</td>
+                <td>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

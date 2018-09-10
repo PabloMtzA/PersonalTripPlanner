@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block main %}
+<h2>Remove items from your itinerary!</h2>
+<br></br>
+    <form action="{{ url_for('delete') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <select name="flight">
+                    <option value="" disabled selected>Flight Number</option>
+                    {% for flight in flights %}
+                    <option value="{{flight.Number}}"> {{flight.Number}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit" name="flight" >Remove from Itinerary</button>
+        </fieldset>
+        <br></br>
+        <fieldset>
+            <div class="form-group">
+                <select name="train">
+                    <option value="" disabled selected>Train Number</option>
+                    {% for train in train %}
+                    <option value="{{train.Number}}"> {{train.Number}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button name="train" class="btn btn-primary" type="submit">Remove from Itinerary</button>
+        </fieldset>
+        <fieldset>
+        <br></br>
+            <div class="form-group">
+                <select name="hotel">
+                    <option value="" disabled selected>Hotel Name</option>
+                    {% for hotel in hotel %}
+                    <option value="{{hotel.Name}}"> {{hotel.Name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button name="hotel" class="btn btn-primary" type="submit">Remove from Itinerary</button>
+        </fieldset>
+        <fieldset>
+        <br></br>
+            <div class="form-group">
+                <select name="expense">
+                    <option value="" disabled selected>Expense</option>
+                    {% for expense in expense %}
+                    <option value="{{expense.Expense}}"> {{expense.Expense}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button name="expense" class="btn btn-primary" type="submit">Remove Expense</button>
+        </fieldset>
+    </form>
+{% endblock %}
